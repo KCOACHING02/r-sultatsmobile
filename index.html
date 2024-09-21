@@ -105,7 +105,7 @@
         .ideal-weight-box {
             padding: 10px;
             margin-bottom: 20px;
-            width: 70%;
+            width: 100%;
             text-align: center;
         }
         .ideal-weight-box p {
@@ -155,7 +155,7 @@
             <div class="circle" id="imc"><strong></strong><span>IMC</span></div>
         </div>
         <div class="result-box-container">
-            <div class="result-box">
+            <div class="result-box" style="width: calc(100% - 20px);">
                 <div>
                     <p>Avec un apport quotidien de 1500 calories ta perte de poids estimée est de <span id="poids-perte-1500" style="background-color: #008080; color: #ffffff; padding: 5px; border-radius: 5px;"></span> kg par mois.</p>
                     <button onclick="window.location.href='https://kcoaching.taplink.ws/d/1500en30jours/'">Acheter le programme 1500 – 19.99€</button>
@@ -164,7 +164,7 @@
             </div>
         </div>
         <div class="result-box-container">
-            <div class="result-box">
+            <div class="result-box" style="width: calc(100% - 20px);">
                 <div>
                     <p>Avec un apport quotidien de 1400 calories ta perte de poids estimée est de <span id="poids-perte-1400" style="background-color: #008080; color: #ffffff; padding: 5px; border-radius: 5px;"></span> kg par mois.</p>
                     <button onclick="window.location.href='https://kcoaching.taplink.ws/d/140014jours/'">Acheter le programme 1400 – 9.99€</button>
@@ -173,7 +173,7 @@
             </div>
         </div>
         <div class="ideal-weight-box">
-            <p>Ton poids idéal selon la formule de Lorentz est de <span id="poids-ideal"></span> kg.</p>
+            <p>Ton poids idéal selon la formule de Lorentz est de <span id="poids-ideal" style="background-color: #800080; color: #ffffff; padding: 5px; border-radius: 5px;"></span> kg.</p>
         </div>
         <button onclick="returnToForm()">Retourner au formulaire</button>
     </div>
