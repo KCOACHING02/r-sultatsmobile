@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultats du Calculateur Métabolique</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
+        }
+        .circle-container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .circle {
+            background-color: #008080;
+            color: #ffffff;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        .circle-title {
+            margin-top: 5px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        .result-box {
+            border: 2px solid #008080;
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            text-align: center;
+        }
+        .result-box button {
+            background-color: #FFD700;
+            color: #000000;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="circle-container">
+        <div class="circle">
+            <div id="mb">MB</div>
+            <div class="circle-title">Métabolisme Basal</div>
+        </div>
+        <div class="circle">
+            <div id="det">DET</div>
+            <div class="circle-title">Métabolisme en Activité</div>
+        </div>
+        <div class="circle">
+            <div id="deficit">Déficit 500</div>
+            <div class="circle-title">Déficit 500 Calories</div>
+        </div>
+        <div class="circle">
+            <div id="imc">IMC</div>
+            <div class="circle-title">IMC</div>
+        </div>
+    </div>
+    <div class="result-box">
+        <p>Avec un apport quotidien de 1500 calories ta perte de poids estimée est de <span id="poids-perte-1500"></span> par mois.</p>
+        <button>Acheter le programme 1500 – 19.99€</button>
+    </div>
+    <div class="result-box">
+        <p>Avec un apport quotidien de 1400 calories ta perte de poids estimée est de <span id="poids-perte-1400"></span> par mois.</p>
+        <button>Acheter le programme 1400 – 9.99€</button>
+    </div>
+    <div class="result-box">
+        <p>Ton poids idéal est de <span id="poids-ideal"></span>.</p>
+    </div>
+</body>
+</html>
