@@ -26,7 +26,7 @@
         form {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: center.
         }
         label {
             font-weight: bold;
@@ -84,14 +84,9 @@
             width: 70%;
             text-align: center;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
-        }
-        .result-box-container {
-            display: flex;
             justify-content: space-between;
-            align-items: center;
-            width: 100%;
         }
         .result-box button {
             background-color: #FFD700;
@@ -106,7 +101,6 @@
             width: 140px;
             height: 140px;
             border-radius: 10px;
-            margin-top: 10px;
         }
         .ideal-weight-box {
             padding: 10px;
@@ -162,16 +156,20 @@
         </div>
         <div class="result-box-container">
             <div class="result-box">
-                <p>Avec un apport quotidien de 1500 calories ta perte de poids estimée est de <span id="poids-perte-1500" style="background-color: #008080; color: #ffffff; padding: 5px; border-radius: 5px;"></span> kg par mois.</p>
+                <div>
+                    <p>Avec un apport quotidien de 1500 calories ta perte de poids estimée est de <span id="poids-perte-1500" style="background-color: #008080; color: #ffffff; padding: 5px; border-radius: 5px;"></span> kg par mois.</p>
+                    <button onclick="window.location.href='https://kcoaching.taplink.ws/d/1500en30jours/'">Acheter le programme 1500 – 19.99€</button>
+                </div>
                 <img src="images/imgprog1500.jpg" alt="Programme 1500">
-                <button onclick="window.location.href='https://kcoaching.taplink.ws/d/1500en30jours/'">Acheter le programme 1500 – 19.99€</button>
             </div>
         </div>
         <div class="result-box-container">
             <div class="result-box">
-                <p>Avec un apport quotidien de 1400 calories ta perte de poids estimée est de <span id="poids-perte-1400" style="background-color: #008080; color: #ffffff; padding: 5px; border-radius: 5px;"></span> kg par mois.</p>
+                <div>
+                    <p>Avec un apport quotidien de 1400 calories ta perte de poids estimée est de <span id="poids-perte-1400" style="background-color: #008080; color: #ffffff; padding: 5px; border-radius: 5px;"></span> kg par mois.</p>
+                    <button onclick="window.location.href='https://kcoaching.taplink.ws/d/140014jours/'">Acheter le programme 1400 – 9.99€</button>
+                </div>
                 <img src="images/imgprog1400.jpg" alt="Programme 1400">
-                <button onclick="window.location.href='https://kcoaching.taplink.ws/d/140014jours/'">Acheter le programme 1400 – 9.99€</button>
             </div>
         </div>
         <div class="ideal-weight-box">
