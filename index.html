@@ -26,7 +26,7 @@
         form {
             display: flex;
             flex-direction: column;
-            align-items: center.
+            align-items: center;
         }
         label {
             font-weight: bold;
@@ -81,7 +81,7 @@
             border: 2px solid #008080;
             padding: 10px;
             margin-bottom: 20px;
-            width: 70%;
+            width: 100%;
             text-align: center;
             display: flex;
             flex-direction: row;
@@ -107,15 +107,15 @@
             margin-bottom: 20px;
             width: 70%;
             text-align: center;
-            background-color: #800080;
-            color: #ffffff;
-            border-radius: 10px;
         }
         .ideal-weight-box p {
             text-align: center;
         }
         .ideal-weight-box span {
-            display: block;
+            background-color: #800080;
+            color: #ffffff;
+            padding: 5px;
+            border-radius: 5px;
             font-weight: bold;
         }
     </style>
@@ -203,7 +203,7 @@
             document.getElementById('imc').querySelector('strong').innerText = imc;
             document.getElementById('poids-perte-1500').innerText = pertePoids1500 + ' kg';
             document.getElementById('poids-perte-1400').innerText = pertePoids1400 + ' kg';
-            document.getElementById('poids-ideal').innerText = poidsIdeal;
+            document.getElementById('poids-ideal').innerText = poidsIdeal + ' kg';
 
             // Masquer le formulaire et afficher les résultats
             document.getElementById('form-container').classList.add('hidden');
