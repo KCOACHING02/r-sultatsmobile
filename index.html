@@ -3,16 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Résultats du Calculateur Métabolique</title>
+    <title>Calculateur métabolique</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
             display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 20px;
-            margin: 0;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            align-self: flex-start;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            background-color: #e0e0e0;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #008080;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
         }
         .circle-container {
             display: flex;
@@ -62,24 +101,92 @@
     </style>
 </head>
 <body>
-    <div class="circle-container">
-        <div class="circle" id="mb">MB</div>
-        <div class="circle" id="det">DET</div>
-        <div class="circle" id="deficit">Déficit 500</div>
-        <div class="circle" id="imc">IMC</div>
+    <div class="container" id="form-container">
+        <h1>Calculateur métabolique</h1>
+        <form id="metabolic-form">
+            <label for="sexe">Sexe :</label>
+            <select id="sexe" name="sexe">
+                <option value="femme">Femme</option>
+                <option value="homme">Homme</option>
+            </select>
+            <label for="age">Âge :</label>
+            <input type="number" id="age" name="age">
+            <label for="poids">Poids :</label>
+            <input type="number" id="poids" name="poids">
+            <label for="taille">Taille (en cm) :</label>
+            <input type="number" id="taille" name="taille">
+            <label for="activite">Niveau d’activité physique :</label>
+            <select id="activite" name="activite">
+                <option value="sedentaire">Sédentaire</option>
+                <option value="legerement_actif">Légèrement actif</option>
+                <option value="moderement_actif">Modérément actif</option>
+                <option value="tres_actif">Très actif</option>
+                <option value="extremement_actif">Extrêmement actif</option>
+            </select>
+            <button type="button" onclick="calculateResults()">Continuer vers les résultats</button>
+        </form>
     </div>
-    <div class="result-box">
-        <p>Avec un apport quotidien de 1500 calories ta perte de poids estimée est de <span id="poids-perte-1500"></span> par mois.</p>
-        <button>Acheter le programme 1500 – 19.99€</button>
-        <img src="image_placeholder.jpg" alt="Image">
+
+    <div class="container hidden" id="results-container">
+        <div class="circle-container">
+            <div class="circle" id="mb">MB</div>
+            <div class="circle" id="det">DET</div>
+            <div class="circle" id="deficit">Déficit 500</div>
+            <div class="circle" id="imc">IMC</div>
+        </div>
+        <div class="result-box">
+            <p>Avec un apport quotidien de 1500 calories ta perte de poids estimée est de <span id="poids-perte-1500"></span> par mois.</p>
+            <button>Acheter le programme 1500 – 19.99€</button>
+            <img src="image_placeholder.jpg" alt="Image">
+        </div>
+        <div class="result-box">
+            <p>Avec un apport quotidien de 1400 calories ta perte de poids estimée est de <span id="poids-perte-1400"></span> par mois.</p>
+            <button>Acheter le programme 1400 – 9.99€</button>
+            <img src="image_placeholder.jpg" alt="Image">
+        </div>
+        <div class="ideal-weight-box">
+            <p>Ton poids idéal selon la formule de Lorentz est de <span id="poids-ideal"></span> kg.</p>
+        </div>
+        <button onclick="returnToForm()">Retourner au formulaire</button>
     </div>
-    <div class="result-box">
-        <p>Avec un apport quotidien de 1400 calories ta perte de poids estimée est de <span id="poids-perte-1400"></span> par mois.</p>
-        <button>Acheter le programme 1400 – 9.99€</button>
-        <img src="image_placeholder.jpg" alt="Image">
-    </div>
-    <div class="ideal-weight-box">
-        <p>Ton poids idéal selon la formule de Lorentz est de <span id="poids-ideal"></span> kg.</p>
-    </div>
+
+    <script>
+        function calculateResults() {
+            // Récupérer les valeurs du formulaire
+            const sexe = document.getElementById('sexe').value;
+            const age = document.getElementById('age').value;
+            const poids = document.getElementById('poids').value;
+            const taille = document.getElementById('taille').value;
+            const activite = document.getElementById('activite').value;
+
+            // Calculer les résultats (exemples de calculs)
+            const mb = Math.round(sexe === 'homme' ? 88.362 + (13.397 * poids) + (4.799 * taille) - (5.677 * age) : 447.593 + (9.247 * poids) + (3.098 * taille) - (4.330 * age));
+            const det = Math.round(mb * (activite === 'sedentaire' ? 1.2 : activite === 'legerement_actif' ? 1.375 : activite === 'moderement_actif' ? 1.55 : activite === 'tres_actif' ? 1.725 : 1.9));
+            const deficit500 = Math.round(det - 500);
+            const imc = Math.round(poids / ((taille / 100) ** 2));
+            const poidsIdeal = Math.round(sexe === 'homme' ? taille - 100 - ((taille - 150) / 4) : taille - 100 - ((taille - 150) / 2.5));
+            const pertePoids1500 = Math.round((det - 1500) * 30 / 7700);
+            const pertePoids1400 = Math.round((det - 1400) * 30 / 7700);
+
+            // Afficher les résultats
+            document.getElementById('mb').innerText = mb;
+            document.getElementById('det').innerText = det;
+            document.getElementById('deficit').innerText = deficit500;
+            document.getElementById('imc').innerText = imc;
+            document.getElementById('poids-perte-1500').innerText = pertePoids1500;
+            document.getElementById('poids-perte-1400').innerText = pertePoids1400;
+            document.getElementById('poids-ideal').innerText = poidsIdeal;
+
+            // Masquer le formulaire et afficher les résultats
+            document.getElementById('form-container').classList.add('hidden');
+            document.getElementById('results-container').classList.remove('hidden');
+        }
+
+        function returnToForm() {
+            // Masquer les résultats et afficher le formulaire
+            document.getElementById('results-container').classList.add('hidden');
+            document.getElementById('form-container').classList.remove('hidden');
+        }
+    </script>
 </body>
 </html>
