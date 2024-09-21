@@ -136,13 +136,17 @@
         </div>
         <div class="result-box">
             <p>Avec un apport quotidien de 1500 calories ta perte de poids estimée est de <span id="poids-perte-1500"></span> par mois.</p>
-            <button>Acheter le programme 1500 – 19.99€</button>
-            <img src="image_placeholder.jpg" alt="Image">
+            <a href="https://kcoaching.taplink.ws/d/1500en30jours/">
+                <button>Acheter le programme 1500 – 19.99€</button>
+                <img src="images/imgprog1500.jpg" alt="Programme 1500">
+            </a>
         </div>
         <div class="result-box">
             <p>Avec un apport quotidien de 1400 calories ta perte de poids estimée est de <span id="poids-perte-1400"></span> par mois.</p>
-            <button>Acheter le programme 1400 – 9.99€</button>
-            <img src="image_placeholder.jpg" alt="Image">
+            <a href="https://kcoaching.taplink.ws/d/140014jours/">
+                <button>Acheter le programme 1400 – 9.99€</button>
+                <img src="images/imgprog1400.jpg" alt="Programme 1400">
+            </a>
         </div>
         <div class="ideal-weight-box">
             <p>Ton poids idéal selon la formule de Lorentz est de <span id="poids-ideal"></span> kg.</p>
@@ -168,7 +172,7 @@
             const pertePoids1500 = Math.round((det - 1500) * 30 / 7700);
             const pertePoids1400 = Math.round((det - 1400) * 30 / 7700);
 
-            // Afficher les résultats
+                        // Afficher les résultats
             document.getElementById('mb').innerText = mb;
             document.getElementById('det').innerText = det;
             document.getElementById('deficit').innerText = deficit500;
