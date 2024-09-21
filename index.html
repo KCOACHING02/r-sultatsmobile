@@ -49,6 +49,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-weight: bold;
         }
         .hidden {
             display: none;
@@ -66,10 +67,14 @@
             width: 80px;
             height: 80px;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
             font-weight: bold;
+        }
+        .circle span {
+            font-weight: normal;
         }
         .result-box {
             border: 2px solid #008080;
@@ -94,17 +99,26 @@
             padding: 10px 20px;
             margin-top: 10px;
             cursor: pointer;
+            font-weight: bold;
         }
         .result-box img {
             width: 140px;
             height: 140px;
             margin-left: 10px;
+            border-radius: 10px;
         }
         .ideal-weight-box {
             padding: 10px;
             margin-bottom: 20px;
             width: 70%;
             text-align: center;
+        }
+        .ideal-weight-box p {
+            text-align: center;
+        }
+        .ideal-weight-box span {
+            display: block;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -137,27 +151,27 @@
 
     <div class="container hidden" id="results-container">
         <div class="circle-container">
-            <div class="circle" id="mb">MB</div>
-            <div class="circle" id="det">DET</div>
-            <div class="circle" id="deficit">Déficit 500</div>
-            <div class="circle" id="imc">IMC</div>
+            <div class="circle" id="mb"><strong></strong><span>MB</span></div>
+            <div class="circle" id="det"><strong></strong><span>DET</span></div>
+            <div class="circle" id="deficit"><strong></strong><span>Déficit 500</span></div>
+            <div class="circle" id="imc"><strong></strong><span>IMC</span></div>
         </div>
         <div class="result-box-container">
             <div class="result-box">
-                <p>Avec un apport quotidien de 1500 calories ta perte de poids estimée est de <span id="poids-perte-1500"></span> par mois.</p>
+                <p>Avec un apport quotidien de 1500 calories ta perte de poids estimée est de <span id="poids-perte-1500" style="background-color: #008080; color: #ffffff; padding: 5px; border-radius: 5px;"></span> kg par mois.</p>
                 <button onclick="window.location.href='https://kcoaching.taplink.ws/d/1500en30jours/'">Acheter le programme 1500 – 19.99€</button>
             </div>
             <a href="https://kcoaching.taplink.ws/d/1500en30jours/">
-                <img src="images/imgprog1500.jpg" alt="Programme 1500" style="width: 140px; height: 140px;">
+                <img src="images/imgprog1500.jpg" alt="Programme 1500" style="width: 140px; height: 140px; border-radius: 10px;">
             </a>
         </div>
         <div class="result-box-container">
             <div class="result-box">
-                <p>Avec un apport quotidien de 1400 calories ta perte de poids estimée est de <span id="poids-perte-1400"></span> par mois.</p>
+                <p>Avec un apport quotidien de 1400 calories ta perte de poids estimée est de <span id="poids-perte-1400" style="background-color: #008080; color: #ffffff; padding: 5px; border-radius: 5px;"></span> kg par mois.</p>
                 <button onclick="window.location.href='https://kcoaching.taplink.ws/d/140014jours/'">Acheter le programme 1400 – 9.99€</button>
             </div>
             <a href="https://kcoaching.taplink.ws/d/140014jours/">
-                <img src="images/imgprog1400.jpg" alt="Programme 1400" style="width: 140px; height: 140px;">
+                <img src="images/imgprog1400.jpg" alt="Programme 1400" style="width: 140px; height: 140px; border-radius: 10px;">
             </a>
         </div>
         <div class="ideal-weight-box">
@@ -182,16 +196,16 @@
             const imc = Math.round(poids / ((taille / 100) ** 2));
             const poidsIdeal = Math.round(sexe === 'homme' ? taille - 100 - ((taille - 150) / 4) : taille - 100 - ((taille - 150) / 2.5));
             const pertePoids1500 = Math.round((det - 1500) * 30 / 7700);
-            const pertePoids1400 = Math.round((det - 1400) * 30 / 7700);
+                        const pertePoids1400 = Math.round((det - 1400) * 30 / 7700);
 
             // Afficher les résultats
-            document.getElementById('mb').innerText = `MB\n${mb}`;
-            document.getElementById('det').innerText = `DET\n${det}`;
-            document.getElementById('deficit').innerText = `Déficit 500\n${deficit500}`;
-            document.getElementById('imc').innerText = `IMC\n${imc}`;
-            document.getElementById('poids-perte-1500').innerText = pertePoids1500;
-            document.getElementById('poids-perte-1400').innerText = pertePoids1400;
-                        document.getElementById('poids-ideal').innerText = poidsIdeal;
+            document.getElementById('mb').querySelector('strong').innerText = mb;
+            document.getElementById('det').querySelector('strong').innerText = det;
+            document.getElementById('deficit').querySelector('strong').innerText = deficit500;
+            document.getElementById('imc').querySelector('strong').innerText = imc;
+            document.getElementById('poids-perte-1500').innerText = pertePoids1500 + ' kg';
+            document.getElementById('poids-perte-1400').innerText = pertePoids1400 + ' kg';
+            document.getElementById('poids-ideal').innerText = poidsIdeal;
 
             // Masquer le formulaire et afficher les résultats
             document.getElementById('form-container').classList.add('hidden');
